@@ -1,6 +1,6 @@
 {
   "review_date": "2026-10-25",
-  "status": "retained unfixed findings; deployment authorized; XML/ODS import mitigation enabled",
+  "status": "deployed after authorization; retained unfixed findings with XML/ODS import mitigation enabled",
   "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r3",
   "counts": {
     "LOW": 185,

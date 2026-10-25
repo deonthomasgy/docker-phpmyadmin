@@ -95,8 +95,7 @@ distinct exploitable vulnerabilities. See `security-review.json` for retained
 critical/high findings and package-specific rationale.
 
 Unfixed does not mean harmless. In particular, Debian's `libxml2` is required
-by PHP and remains vulnerable. Authenticated XML/ODS imports call SimpleXML on
-uploaded content. This release removes `ImportXml.php` and `ImportOds.php` before generating
+by PHP and remains vulnerable. Upstream XML/ODS import plugins call SimpleXML on uploaded content. This release removes `ImportXml.php` and `ImportOds.php` before generating
 the autoloader. XML/ODS choices disappear from the UI, and a PHP prepend guard
 returns HTTP 403 for direct XML/ODS import submissions before application parsing.
 This blocks those import entry points, but is not proof that every libxml2 path
@@ -115,18 +114,25 @@ eliminates those image findings; host-kernel patching is a separate operation.
 
 ## Production deployment
 
-Host: `mintage-host-9`; file: `/home/thomas/mysql/docker-compose.yml`, image currently at line 98;
-Compose project: `mysql`; service: `phpmyadmin-9`; container:
-`thomas-phpmyadmin-9`. Current image: `phpmyadmin/phpmyadmin:latest`. The deployment file changed from YAML to JSON during this work through an external change; the proposed patch was refreshed and dry-run checked against its current contents.
-HTTP is bound to the host's Tailscale address on port 8080. Deployment is authorized for all discovered hosts. `deploy-compose.py` backs up
-the original configuration on each host, changes only its phpMyAdmin image pin,
-and preserves ports, mounts, other services and stopped instances.
-`deployment-results.json` records the verified rollout.
+Released and deployed on 2026-10-25. All 16 discovered running instances are
+healthy on the digest in `release.json`; one previously stopped instance was
+updated without starting it. Final checks verified the persistent image pins,
+PHP/Twig versions, absent import classes, HTTP responses and XML/ODS rejection.
+The source repository is https://github.com/deonthomasgy/docker-phpmyadmin.
 
-`deployment.patch` contains the proposed immutable image pin. Preserve all other configuration, pull the pinned image,
-and recreate only `phpmyadmin-9` with `docker compose up -d --no-deps phpmyadmin-9`.
-Verify login, database browsing/import/export and health after replacement.
-Rollback by restoring the previous image reference and recreating that service.
+`deploy-compose.py` changes only the phpMyAdmin service image in each host's
+Compose file and recreates only that service. It preserves stopped instances
+using `up --no-start --no-deps`. `deploy-standalone.py` preserves custom mounts,
+ports, networks, restart policy and explicit environment overrides for a
+container without Compose labels, and saves a private pinned container
+specification on that host. Both retain rollback backups under
+`~/phpmyadmin-security-backups/` with restricted permissions.
+
+Detailed host records remain local in `reports/rollout/results.json` and
+`reports/rollout/final-audit.json`; the public release record contains aggregate
+results. `deployment.patch` records the original host-9 image change and is not
+needed on already updated hosts. SQL imports/exports remain enabled.
+
 Releases r1 and r2 are superseded; use r3 with XML/ODS imports disabled.
 
 ## Sources

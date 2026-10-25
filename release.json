@@ -4,7 +4,7 @@
   "platform": "linux/amd64",
   "built_from": "princeamd/php84-fpm:8.4.27-r2@sha256:7c8e805b922a9ff34a3865719b25b7b4b06094f7fd8e6a0e042722568b643ff6",
   "published": true,
-  "deployed": false,
+  "deployed": true,
   "scan_counts": {
     "LOW": 185,
     "HIGH": 60,
@@ -40,5 +40,15 @@
   "disabled_imports": [
     "xml",
     "ods"
-  ]
+  ],
+  "deployment": {
+    "verified_at": "2026-10-25T17:44:15.933942+00:00",
+    "instances_updated": 17,
+    "running_healthy": 16,
+    "preserved_stopped": 1,
+    "image_pins_verified": 17,
+    "xml_ods_blocking_verified": 16,
+    "backup_policy": "Original configuration/container specifications retained privately on each host",
+    "local_audit": "reports/rollout/final-audit.json"
+  }
 }

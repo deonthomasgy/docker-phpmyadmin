@@ -135,7 +135,7 @@ try:
                 assert error.code == 403 and b'XML and ODS imports are disabled' in error.read()
         result = 'healthy; HTTP 200; XML/ODS HTTP 403'
     else:
-        run(compose + ['create', '--no-deps', '--no-build', '--force-recreate', service], timeout=180)
+        run(compose + ['up', '--no-start', '--no-deps', '--no-build', '--force-recreate', service], timeout=180)
         current = inspect(name)
         assert not current['State']['Running'] and current['Image'] == target
         result = 'updated; preserved stopped state'
@@ -145,7 +145,7 @@ except Exception:
         rollback = before.replace(before_config['services'][service]['image'], original['Image'], 1)
         write_config(rollback)
         try:
-            command = ['up', '-d', '--no-deps', '--no-build', '--force-recreate', service] if original['State']['Running'] else ['create', '--no-deps', '--no-build', '--force-recreate', service]
+            command = ['up', '-d', '--no-deps', '--no-build', '--force-recreate', service] if original['State']['Running'] else ['up', '--no-start', '--no-deps', '--no-build', '--force-recreate', service]
             if deployment_started:
                 run(compose + command, timeout=180)
         finally:
