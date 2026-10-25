@@ -49,6 +49,10 @@
     "image_pins_verified": 17,
     "xml_ods_blocking_verified": 16,
     "backup_policy": "Original configuration/container specifications retained privately on each host",
-    "local_audit": "reports/rollout/final-audit.json"
+    "local_audit": "reports/rollout/final-audit.json",
+    "retired_instances": 1,
+    "currently_running_healthy": 16,
+    "currently_stopped": 0,
+    "retirement_note": "The previously stopped phpMyAdmin instance was subsequently removed at the owner request because that project uses SQLite; its Compose service was removed as well."
   }
 }

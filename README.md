@@ -115,8 +115,9 @@ eliminates those image findings; host-kernel patching is a separate operation.
 ## Production deployment
 
 Released and deployed on 2026-10-25. All 16 discovered running instances are
-healthy on the digest in `release.json`; one previously stopped instance was
-updated without starting it. Final checks verified the persistent image pins,
+healthy on the digest in `release.json`. The previously stopped instance was
+initially updated without starting it, then removed along with its Compose
+service at the owner’s request because that project now uses SQLite. Final checks verified the persistent image pins,
 PHP/Twig versions, absent import classes, HTTP responses and XML/ODS rejection.
 The source repository is https://github.com/deonthomasgy/docker-phpmyadmin.
 
