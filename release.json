@@ -1,0 +1,39 @@
+{
+  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r2@sha256:2705c972da7eae96bae01d1986a2360118bbdbd19b68a48f12cb3e40e9ff9109",
+  "image_id": "sha256:84e241c8f9895a45035bfb1fb8d7503be4a398eac3c6efcd690d2bf2ee56d0c6",
+  "platform": "linux/amd64",
+  "built_from": "princeamd/php84-fpm:8.4.27-r2@sha256:7c8e805b922a9ff34a3865719b25b7b4b06094f7fd8e6a0e042722568b643ff6",
+  "published": true,
+  "deployed": false,
+  "scan_counts": {
+    "LOW": 185,
+    "HIGH": 60,
+    "MEDIUM": 105,
+    "UNKNOWN": 5,
+    "CRITICAL": 1
+  },
+  "requested_rce_remaining": [],
+  "fixable_findings": 0,
+  "tests": {
+    "upstream": {
+      "name": "",
+      "tests": "3125",
+      "assertions": "12478",
+      "errors": "0",
+      "warnings": "3",
+      "failures": "0",
+      "skipped": "48",
+      "time": "80.783054"
+    },
+    "templates_compiled": 270,
+    "http_checks": 14,
+    "configuration_checks": [
+      "PMA_HOST_FILE/PMA_USER_FILE/PMA_PASSWORD_FILE",
+      "APACHE_PORT=8081",
+      "UPLOAD_LIMIT=64M",
+      "session.upload_progress.enabled=0"
+    ],
+    "shutdown": "SIGTERM delivered inside container: exit 0; local Docker host signal delivery denied",
+    "server_failure": "Apache termination: exit 1"
+  }
+}
