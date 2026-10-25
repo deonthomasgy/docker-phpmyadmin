@@ -1,7 +1,5 @@
 --- a/docker-compose.yml
 +++ b/docker-compose.yml
-@@ -26,3 +26,3 @@
-   phpmyadmin-9:
--    image: phpmyadmin/phpmyadmin:latest
-+    image: princeamd/phpmyadmin:5.2.3-php8.4.27-r2@sha256:2705c972da7eae96bae01d1986a2360118bbdbd19b68a48f12cb3e40e9ff9109
-     container_name: thomas-phpmyadmin-9
+@@ -98 +98 @@
+-      "image": "phpmyadmin/phpmyadmin:latest",
++      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r2@sha256:2705c972da7eae96bae01d1986a2360118bbdbd19b68a48f12cb3e40e9ff9109",

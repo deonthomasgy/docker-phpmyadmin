@@ -112,9 +112,9 @@ eliminates those image findings; host-kernel patching is a separate operation.
 
 ## Production deployment — not applied
 
-Host: `mintage-host-9`; file: `/home/thomas/mysql/docker-compose.yml`, line 27;
+Host: `mintage-host-9`; file: `/home/thomas/mysql/docker-compose.yml`, image currently at line 98;
 Compose project: `mysql`; service: `phpmyadmin-9`; container:
-`thomas-phpmyadmin-9`. Current image: `phpmyadmin/phpmyadmin:latest`.
+`thomas-phpmyadmin-9`. Current image: `phpmyadmin/phpmyadmin:latest`. The deployment file changed from YAML to JSON during this work through an external change; the proposed patch was refreshed and dry-run checked against its current contents.
 HTTP is bound to the host's Tailscale address on port 8080. No production
 configuration, image pin or container was changed by this work.
 
