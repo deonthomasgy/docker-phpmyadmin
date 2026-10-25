@@ -1,3 +1,4 @@
 /reports/
 /vendor/
 /upstream/
+__pycache__/

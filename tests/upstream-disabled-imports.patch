@@ -1,0 +1,5 @@
+--- a/test/classes/PluginsTest.php
++++ b/test/classes/PluginsTest.php
+@@ -39,1 +39,1 @@
+-        self::assertCount(6, $plugins);
++        self::assertCount(4, $plugins); // XML and ODS imports deliberately removed.

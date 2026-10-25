@@ -1,6 +1,6 @@
 {
-  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r2@sha256:2705c972da7eae96bae01d1986a2360118bbdbd19b68a48f12cb3e40e9ff9109",
-  "image_id": "sha256:84e241c8f9895a45035bfb1fb8d7503be4a398eac3c6efcd690d2bf2ee56d0c6",
+  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r3@sha256:b1662a73c16939771fb43d7476d544236a22672216bce7aadc4a6e2f572e1a1d",
+  "image_id": "sha256:16dceade3268a127bbd5c7710277f0025ec96a354842ff4f128a2037b0c2c08d",
   "platform": "linux/amd64",
   "built_from": "princeamd/php84-fpm:8.4.27-r2@sha256:7c8e805b922a9ff34a3865719b25b7b4b06094f7fd8e6a0e042722568b643ff6",
   "published": true,
@@ -17,16 +17,16 @@
   "tests": {
     "upstream": {
       "name": "",
-      "tests": "3125",
-      "assertions": "12478",
+      "tests": "3119",
+      "assertions": "12441",
       "errors": "0",
       "warnings": "3",
       "failures": "0",
       "skipped": "48",
-      "time": "80.783054"
+      "time": "82.417268"
     },
     "templates_compiled": 270,
-    "http_checks": 14,
+    "http_checks": 16,
     "configuration_checks": [
       "PMA_HOST_FILE/PMA_USER_FILE/PMA_PASSWORD_FILE",
       "APACHE_PORT=8081",
@@ -34,6 +34,11 @@
       "session.upload_progress.enabled=0"
     ],
     "shutdown": "SIGTERM delivered inside container: exit 0; local Docker host signal delivery denied",
-    "server_failure": "Apache termination: exit 1"
-  }
+    "server_failure": "Apache termination: exit 1",
+    "upstream_adjustments": "Removed XML/ODS plugin tests; expected import plugin count 4 instead of 6"
+  },
+  "disabled_imports": [
+    "xml",
+    "ods"
+  ]
 }

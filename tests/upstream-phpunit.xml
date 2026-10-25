@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 <phpunit bootstrap="/tests/upstream-bootstrap.php" colors="false">
   <php><env name="LC_ALL" value="C.UTF8" force="true"/></php>
-  <testsuites><testsuite name="upstream-unit"><directory suffix="Test.php">/var/www/html/test/classes</directory></testsuite></testsuites>
+  <testsuites><testsuite name="upstream-unit">
+    <directory suffix="Test.php">/var/www/html/test/classes</directory>
+    <!-- These plugins are intentionally absent from the production image. -->
+    <exclude>/var/www/html/test/classes/Plugins/Import/ImportXmlTest.php</exclude>
+    <exclude>/var/www/html/test/classes/Plugins/Import/ImportOdsTest.php</exclude>
+  </testsuite></testsuites>
 </phpunit>

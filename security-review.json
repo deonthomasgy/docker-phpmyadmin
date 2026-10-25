@@ -1,7 +1,7 @@
 {
   "review_date": "2026-10-25",
-  "status": "retained unfixed findings; deployment not approved",
-  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r2",
+  "status": "retained unfixed findings; deployment authorized; XML/ODS import mitigation enabled",
+  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r3",
   "counts": {
     "LOW": 185,
     "HIGH": 60,
@@ -18,7 +18,7 @@
     "linux-libc-dev": "PHP compilation toolchain inherited from base; removed from final filesystem"
   },
   "risk_rationale": {
-    "libxml2": "Required by PHP XML/DOM. XML/ODS import directly parses authenticated uploads through SimpleXML: reachable parser surface, not proven unexploitable. Restrict to trusted uploads or remove ImportXml/ImportOds plugins. Python bindings are absent for Python-specific CVE-2026-74860. No fixed Debian 13 package; await stable update or tested backport. Removing import plugins is partial mitigation only.",
+    "libxml2": "Required by PHP XML/DOM. XML/ODS import plugin classes are removed from the image and autoloader; direct XML/ODS import submissions return HTTP 403 before application parsing. No fixed Debian 13 package exists. This mitigates those upload paths, not every libxml2 path; retain remaining findings and await a stable fix or tested backport.",
     "curl/libcurl4t64": "Retained for PHP CURL / version checking and HTTP healthcheck. No fixed version. Use explicit HTTPS URLs and avoid untrusted outbound targets; connection reuse issue remains a risk.",
     "libx11-6/libx11-data": "Required transitively by GD/libXpm. No X server socket is mounted and no DISPLAY is configured in inspected deployment. Malicious X server path not expected in ordinary phpMyAdmin requests; do not add X sockets or DISPLAY.",
     "ncurses": "Terminfo/terminal parsing libraries retained through PHP readline and base tooling. No web terminal feature. Avoid attacker-supplied terminal databases/environment; no Debian fix.",

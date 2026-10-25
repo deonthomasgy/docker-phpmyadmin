@@ -16,14 +16,16 @@ COPY composer.json composer.lock ./
 ENV COMPOSER_ALLOW_SUPERUSER=1
 # Reinstall from the reviewed lock, preserving bundled PDF and 2FA features.
 RUN rm -rf vendor \
+    && rm libraries/classes/Plugins/Import/ImportXml.php libraries/classes/Plugins/Import/ImportOds.php \
     && composer install --no-dev --prefer-dist --no-interaction --no-plugins --no-scripts --optimize-autoloader \
     && composer check-platform-reqs --no-dev
 
 FROM php AS runtime
-ARG VERSION=5.2.3-php8.4.27-r2
+ARG VERSION=5.2.3-php8.4.27-r3
 LABEL org.opencontainers.image.title="phpMyAdmin on princeamd PHP 8.4" \
       org.opencontainers.image.version="${VERSION}" \
       org.opencontainers.image.vendor="princeamd" \
+      org.opencontainers.image.source="https://github.com/deonthomasgy/docker-phpmyadmin" \
       org.opencontainers.image.licenses="GPL-2.0-only" \
       org.opencontainers.image.description="phpMyAdmin 5.2.3 with patched dependencies, Apache and PHP 8.4 FPM"
 COPY docker/runtime-security.sh /usr/local/bin/phpmyadmin-runtime-security
@@ -35,6 +37,7 @@ COPY --from=upstream /docker-entrypoint.sh /usr/local/bin/phpmyadmin-upstream-en
 COPY docker/apache.conf /etc/apache2/sites-available/000-default.conf
 COPY docker/phpmyadmin.ini /usr/local/etc/php/conf.d/zzzz-phpmyadmin.ini
 COPY docker/fpm.conf /usr/local/etc/php-fpm.d/zz-phpmyadmin.conf
+COPY docker/import-policy.php /usr/local/lib/phpmyadmin/import-policy.php
 COPY --chmod=755 docker/start.sh /usr/local/bin/phpmyadmin-start
 ENV PMA_SSL_DIR=/etc/phpmyadmin/ssl \
     MAX_EXECUTION_TIME=600 MEMORY_LIMIT=512M UPLOAD_LIMIT=2048K TZ=UTC \

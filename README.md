@@ -2,7 +2,7 @@
 
 Custom phpMyAdmin 5.2.3 image built from `princeamd/php84-fpm:8.4.27-r2`, with
 Apache 2.4 forwarding PHP requests to FPM on loopback. Release:
-`princeamd/phpmyadmin:5.2.3-php8.4.27-r2` (linux/amd64).
+`princeamd/phpmyadmin:5.2.3-php8.4.27-r3` (linux/amd64).
 
 The application and upstream environment/secrets configuration come from the
 Docker Official Image `phpmyadmin:5.2.3-apache`, pinned by digest. The older
@@ -67,8 +67,10 @@ php -d session.cookie_httponly=0 /tmp/phpunit -c /tests/upstream-phpunit.xml
 
 The CLI-only cookie override matches the upstream test's expected PHP defaults;
 production retains HttpOnly cookies. Network-group tests need outbound internet.
-The tested suite had 3,125 tests, 12,478 assertions, zero failures/errors,
-48 skips and 3 PHPUnit warnings. All 270 Twig templates and 14 HTTP checks passed.
+XML/ODS plugin tests are excluded because those classes are removed, and
+`tests/upstream-disabled-imports.patch` adjusts the plugin count from six to four.
+The tested suite had 3,119 tests, 12,441 assertions, zero failures/errors,
+48 skips and 3 PHPUnit warnings. All 270 Twig templates and 16 HTTP checks passed.
 
 Apache failure made the container exit with status 1. Sending SIGTERM to Tini
 inside the container stopped both servers with status 0. This workstation's
@@ -94,11 +96,12 @@ critical/high findings and package-specific rationale.
 
 Unfixed does not mean harmless. In particular, Debian's `libxml2` is required
 by PHP and remains vulnerable. Authenticated XML/ODS imports call SimpleXML on
-uploaded content. Do not import untrusted XML/ODS files; disable those two
-import plugins if this cannot be enforced. Removing
-`libraries/classes/Plugins/Import/ImportXml.php` and `ImportOds.php` from a derived
-build removes those entry points, but is not proof that every libxml2 path in
-PHP and optional libraries is unreachable. A patched stable libxml2 or a tested
+uploaded content. This release removes `ImportXml.php` and `ImportOds.php` before generating
+the autoloader. XML/ODS choices disappear from the UI, and a PHP prepend guard
+returns HTTP 403 for direct XML/ODS import submissions before application parsing.
+This blocks those import entry points, but is not proof that every libxml2 path
+in PHP and optional libraries is unreachable. SQL and CSV imports and XML/ODS
+exports remain available. A patched stable libxml2 or a tested
 backport is still required. Do not mix Debian unstable packages into this image.
 
 The remaining curl, ncurses, X11, util-linux, ACL, systemd-library and Perl
@@ -110,20 +113,21 @@ The `linux-libc-dev` ksmbd findings concern development headers from the kernel
 source package, not a running kernel inside the image. Removing the headers
 eliminates those image findings; host-kernel patching is a separate operation.
 
-## Production deployment — not applied
+## Production deployment
 
 Host: `mintage-host-9`; file: `/home/thomas/mysql/docker-compose.yml`, image currently at line 98;
 Compose project: `mysql`; service: `phpmyadmin-9`; container:
 `thomas-phpmyadmin-9`. Current image: `phpmyadmin/phpmyadmin:latest`. The deployment file changed from YAML to JSON during this work through an external change; the proposed patch was refreshed and dry-run checked against its current contents.
-HTTP is bound to the host's Tailscale address on port 8080. No production
-configuration, image pin or container was changed by this work.
+HTTP is bound to the host's Tailscale address on port 8080. Deployment is authorized for all discovered hosts. `deploy-compose.py` backs up
+the original configuration on each host, changes only its phpMyAdmin image pin,
+and preserves ports, mounts, other services and stopped instances.
+`deployment-results.json` records the verified rollout.
 
-`deployment.patch` contains the proposed immutable image pin. Apply only after
-deployment approval, preserve all other configuration, pull the pinned image,
+`deployment.patch` contains the proposed immutable image pin. Preserve all other configuration, pull the pinned image,
 and recreate only `phpmyadmin-9` with `docker compose up -d --no-deps phpmyadmin-9`.
 Verify login, database browsing/import/export and health after replacement.
 Rollback by restoring the previous image reference and recreating that service.
-Release r1 was superseded during shutdown validation; use r2 only.
+Releases r1 and r2 are superseded; use r3 with XML/ODS imports disabled.
 
 ## Sources
 

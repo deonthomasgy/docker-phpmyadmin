@@ -1,7 +1,7 @@
 #!/bin/bash
 set -euo pipefail
 cd "$(dirname "$0")"
-image="${1:-princeamd/phpmyadmin:5.2.3-php8.4.27-r2}"
+image="${1:-princeamd/phpmyadmin:5.2.3-php8.4.27-r3}"
 mkdir -p reports
 docker build --pull --no-cache --progress=plain -t "$image" .
 docker run --rm -v "$PWD/tests:/tests:ro" "$image" php /tests/templates.php

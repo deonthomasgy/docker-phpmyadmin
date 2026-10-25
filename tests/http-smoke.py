@@ -36,6 +36,19 @@ assert 'id="login_form"' not in page and 'pma_test' in page, page[-2000:]
 assert any(c.name.startswith('pmaAuth') for c in cookies)
 checks.append('cookie login against MySQL 8.4')
 token = hidden(page, 'token')
+imports = request('/index.php?route=/database/import&server=1&db=pma_test')
+assert not re.search(r'<option[^>]+value="(?:xml|ods)"', imports, re.I)
+checks.append('XML and ODS are absent from import choices')
+for disabled in ['xml', 'ods', 'XML', 'ODS']:
+    try:
+        request('/index.php?route=/import', {
+            'token': token, 'server': '1', 'db': 'pma_test',
+            'format': disabled, 'import_type': 'database', 'import_text': '<test/>',
+        })
+        raise AssertionError(f'Disabled format accepted: {disabled}')
+    except urllib.error.HTTPError as e:
+        assert e.code == 403 and b'XML and ODS imports are disabled' in e.read()
+checks.append('direct XML/ODS import submissions are rejected with HTTP 403')
 sql = "DROP TABLE IF EXISTS smoke; CREATE TABLE smoke (id INT PRIMARY KEY, message VARCHAR(255)); INSERT INTO smoke VALUES (1, 'php84_security_smoke');"
 request('/index.php?route=/import', {
     'token': token, 'server': '1', 'db': 'pma_test', 'sql_query': sql,

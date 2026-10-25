@@ -2,4 +2,4 @@
 +++ b/docker-compose.yml
 @@ -98 +98 @@
 -      "image": "phpmyadmin/phpmyadmin:latest",
-+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r2@sha256:2705c972da7eae96bae01d1986a2360118bbdbd19b68a48f12cb3e40e9ff9109",
++      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r3@sha256:b1662a73c16939771fb43d7476d544236a22672216bce7aadc4a6e2f572e1a1d",
