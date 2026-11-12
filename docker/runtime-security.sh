@@ -3,6 +3,8 @@ set -eu
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
 apt-get upgrade -y --no-install-recommends --no-remove
+dpkg --compare-versions "$(dpkg-query -W -f='${Version}' apt)" ge 3.0.4
+dpkg --compare-versions "$(dpkg-query -W -f='${Version}' zlib1g)" ge '1:1.3.dfsg+really1.3.1-1+deb13u1'
 apt-get install -y --no-install-recommends apache2 tini
 
 # phpMyAdmin uses GD, not Imagick, and connects through mysqli/mysqlnd.
