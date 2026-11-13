@@ -1,0 +1,347 @@
+[
+  {
+    "host": "mintage-host-1",
+    "hostname": "mintage-host-1.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-1",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988898+00:00"
+  },
+  {
+    "host": "mintage-host-2",
+    "hostname": "mintage-host-2.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-2",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988919+00:00"
+  },
+  {
+    "host": "mintage-host-3",
+    "hostname": "mintage-host-3.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-3",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 1,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988921+00:00"
+  },
+  {
+    "host": "mintage-host-4",
+    "hostname": "mintage-host-4.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-4",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988922+00:00"
+  },
+  {
+    "host": "mintage-host-5",
+    "hostname": "mintage-host-5.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-5",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988923+00:00"
+  },
+  {
+    "host": "mintage-host-6",
+    "hostname": "mintage-host-6.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-6",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988924+00:00"
+  },
+  {
+    "host": "mintage-host-7",
+    "hostname": "mintage-host-7.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-7",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 1,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988927+00:00"
+  },
+  {
+    "host": "mintage-host-8",
+    "hostname": "mintage-host-8.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-8",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988928+00:00"
+  },
+  {
+    "host": "mintage-host-9",
+    "hostname": "mintage-host-9.invernisoft.io",
+    "instances": [
+      {
+        "container": "thomas-phpmyadmin-9",
+        "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+        "digest_pinned": true,
+        "health": "healthy",
+        "restarts": 0,
+        "checks": {
+          "apache_patched": true,
+          "apache_config": true,
+          "http2_disabled": true,
+          "php_fpm_config": true,
+          "http_login_page": true,
+          "published_http_login_page": true,
+          "persistent_release_pin": true
+        },
+        "image_matches_release": true,
+        "apache_packages": [
+          "apache2=2.4.71-1~deb13u1",
+          "apache2-bin=2.4.71-1~deb13u1",
+          "apache2-data=2.4.71-1~deb13u1",
+          "apache2-utils=2.4.71-1~deb13u1"
+        ],
+        "php_version": "8.4.27",
+        "compose_files": [
+          "/home/thomas/mysql/docker-compose.yml"
+        ],
+        "passed": true
+      }
+    ],
+    "stopped_phpmyadmin": 2,
+    "passed": true,
+    "verifiedAt": "2026-11-13T23:53:42.988928+00:00"
+  },
+  {
+    "host": "mintage-host-10",
+    "hostname": "mintage-host-10.invernisoft.io",
+    "instances": [],
+    "stopped_phpmyadmin": 0,
+    "passed": false,
+    "verifiedAt": "2026-11-13T23:53:42.988929+00:00",
+    "status": "phpmyadmin_not_installed_as_container",
+    "configured_service": "phpmyadmin-10",
+    "configuration_update": "Pinned existing Compose service to verified r5 image; did not start service",
+    "runtime_verification": "Not possible: container absent"
+  }
+]
