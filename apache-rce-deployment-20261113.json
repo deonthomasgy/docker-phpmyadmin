@@ -1,0 +1,208 @@
+{
+  "status": "partial_remediation",
+  "source_commit": "a428bbebeb27d6d8184ea4f934641c3cc68cdb3e",
+  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+  "deployed_instances": 12,
+  "healthy_instances": 12,
+  "template_compilations": 270,
+  "configuration_checks": "Apache and PHP-FPM passed; HTTP/2 disabled",
+  "monitor_generated_at": "2026-11-13T23:49:50.838570252Z",
+  "production_fixable_rce_remaining": 0,
+  "scan_errors": 0,
+  "pending_scans": 0,
+  "deployments": [
+    {
+      "host": "mintage-host-1",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:46.281263364Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-2",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:46.178993214Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-3",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:46.223639793Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-4",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:46.323629041Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-5",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:48.486342294Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-6",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:48.657605778Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-7",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:48.736855556Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-8",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:48.830234247Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-host-9",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:17.147504838Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-wf-host-1",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:48:39.406005683Z",
+      "rce": 0
+    },
+    {
+      "host": "mintage-wf-host-2",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:26.546383228Z",
+      "rce": 0
+    },
+    {
+      "host": "orion-fs-host-1",
+      "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5@sha256:681bf6f96b4d3172fd51429981945e058e5ef6185cf1351104481ef6cc719e6c",
+      "scannedAt": "2026-11-13T23:49:29.548134988Z",
+      "rce": 0
+    }
+  ],
+  "unresolved_advisories": {
+    "CVE-2026-107815": {
+      "images": 29,
+      "packages": [
+        "libmariadb3",
+        "mariadb-client",
+        "mariadb-client-compat",
+        "mariadb-client-core",
+        "mariadb-common"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-107815",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-111760": {
+      "images": 7,
+      "packages": [
+        "git",
+        "git-man"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-111760",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-112396": {
+      "images": 1,
+      "packages": [
+        "python3-pil"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-112396",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-112900": {
+      "images": 1,
+      "packages": [
+        "python3-pil"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-112900",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-44168": {
+      "images": 29,
+      "packages": [
+        "libmariadb3",
+        "mariadb-client",
+        "mariadb-client-compat",
+        "mariadb-client-core",
+        "mariadb-common"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-44168",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-48163": {
+      "images": 29,
+      "packages": [
+        "libmariadb3",
+        "mariadb-client",
+        "mariadb-client-compat",
+        "mariadb-client-core",
+        "mariadb-common"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-48163",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-48165": {
+      "images": 29,
+      "packages": [
+        "libmariadb3",
+        "mariadb-client",
+        "mariadb-client-compat",
+        "mariadb-client-core",
+        "mariadb-common"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-48165",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-49261": {
+      "images": 29,
+      "packages": [
+        "libmariadb3",
+        "mariadb-client",
+        "mariadb-client-compat",
+        "mariadb-client-core",
+        "mariadb-common"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-49261",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-55453": {
+      "images": 21,
+      "packages": [
+        "libcups2t64"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-55453",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-85091": {
+      "images": 14,
+      "packages": [
+        "zlib1g"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-85091",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-88807": {
+      "images": 5,
+      "packages": [
+        "libxrender1"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-88807",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    },
+    "CVE-2026-96778": {
+      "images": 1,
+      "packages": [
+        "python3-pil"
+      ],
+      "source": "https://security-tracker.debian.org/tracker/CVE-2026-96778",
+      "blocker": "No fixed version in configured stable distribution repositories; upstream backport or component removal requires separate implementation and compatibility validation."
+    }
+  },
+  "alerts_suppressed": false,
+  "rollback_location": "~/.rce-rollbacks-20261113 on each host"
+}
