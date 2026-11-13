@@ -1,0 +1,9 @@
+{
+  "cve": "CVE-2026-119618",
+  "apache_minimum": "2.4.71-1~deb13u1",
+  "image": "princeamd/phpmyadmin:5.2.3-php8.4.27-r5",
+  "apache_rce_remaining": false,
+  "templates_compiled": 270,
+  "http2_enabled": false,
+  "source": "https://security-tracker.debian.org/tracker/CVE-2026-119618"
+}

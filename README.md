@@ -152,3 +152,5 @@ Releases r1 and r2 are superseded; use r3 with XML/ODS imports disabled.
 Upstream phpMyAdmin is GPL-2.0-only. Its source/release, licenses, runtime
 dependency versions and source references are retained in the distribution and
 Composer lock. Local Docker build scripts are maintained in this directory.
+
+Apache RCE update (2026-11-13): build `Dockerfile.apache-security` to update the deployed r4 application image to r5 with Debian Apache >= 2.4.71-1~deb13u1. The main Dockerfile enforces the same minimum. HTTP/2 remains disabled. The image passed Apache/PHP configuration checks, compilation of all 270 templates, and a fresh Trivy scan with no CVE-2026-119618 remaining.

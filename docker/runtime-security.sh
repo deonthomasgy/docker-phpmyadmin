@@ -30,7 +30,7 @@ rm -rf /var/lib/apt/lists/* /usr/lib/node_modules /usr/local/lib/node_modules \
 rm -f /tmp/php-runtime-packages /usr/bin/composer /usr/local/bin/composer /usr/local/bin/phpize /usr/local/bin/php-config
 php -r 'foreach (["mysqli", "mysqlnd", "bz2", "gd", "mbstring", "zip", "openssl", "sodium"] as $e) {if (!extension_loaded($e)) {throw new RuntimeException("Missing extension: $e");}}'
 for package in apache2 apache2-bin apache2-data apache2-utils; do
-  dpkg --compare-versions "$(dpkg-query -W -f='${Version}' "$package")" ge '2.4.69-1~deb13u1'
+  dpkg --compare-versions "$(dpkg-query -W -f='${Version}' "$package")" ge '2.4.71-1~deb13u1'
 done
 dpkg --compare-versions "$(dpkg-query -W -f='${Version}' libssl3t64)" ge '3.5.5-1~deb13u2'
 dpkg --compare-versions "$(dpkg-query -W -f='${Version}' libpcre2-8-0)" ge '10.46-1~deb13u2'

@@ -1,0 +1,14 @@
+# Reproducible incremental security update of the deployed application image.
+FROM princeamd/phpmyadmin:5.2.3-php8.4.27-r4@sha256:3e0010b8c59a0666c0df51f652f7556c481b0b7e4677888a11062318f3e860fa
+USER root
+LABEL org.opencontainers.image.version="5.2.3-php8.4.27-r5"
+RUN apt-get update \
+    && apt-get upgrade -y --no-install-recommends --no-remove \
+    && for package in apache2 apache2-bin apache2-data apache2-utils; do \
+         dpkg --compare-versions "$(dpkg-query -W -f='${Version}' "$package")" ge '2.4.71-1~deb13u1' || exit 1; \
+       done \
+    && a2dismod -f http2 \
+    && apache2ctl configtest \
+    && php-fpm -t \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*

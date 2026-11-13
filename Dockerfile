@@ -21,7 +21,7 @@ RUN rm -rf vendor \
     && composer check-platform-reqs --no-dev
 
 FROM php AS runtime
-ARG VERSION=5.2.3-php8.4.27-r3
+ARG VERSION=5.2.3-php8.4.27-r5
 LABEL org.opencontainers.image.title="phpMyAdmin on princeamd PHP 8.4" \
       org.opencontainers.image.version="${VERSION}" \
       org.opencontainers.image.vendor="princeamd" \
@@ -48,7 +48,7 @@ RUN mkdir -p /sessions /etc/phpmyadmin/ssl /var/www/html/tmp \
     && chmod 1777 /sessions \
     && chown -R www-data:www-data /etc/phpmyadmin /var/www/html/tmp \
     && a2enmod proxy proxy_fcgi setenvif remoteip \
-    && a2dismod -f autoindex status \
+    && a2dismod -f autoindex status http2 \
     && printf 'ServerName localhost\nServerTokens Prod\nServerSignature Off\n' > /etc/apache2/conf-enabled/security-local.conf \
     && printf 'Listen ${APACHE_PORT}\n' > /etc/apache2/ports.conf \
     && ln -sf /proc/self/fd/1 /var/log/apache2/access.log \
