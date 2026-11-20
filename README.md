@@ -1,8 +1,8 @@
 # phpMyAdmin on our PHP 8.4 image
 
-Custom phpMyAdmin 5.2.3 image built from `princeamd/php84-fpm:8.4.27-r2`, with
+Custom phpMyAdmin 5.2.3 image built from `princeamd/php84-fpm:8.4.28-r0`, with
 Apache 2.4 forwarding PHP requests to FPM on loopback. Release:
-`princeamd/phpmyadmin:5.2.3-php8.4.27-r3` (linux/amd64).
+`princeamd/phpmyadmin:5.2.3-php8.4.28-r0` (linux/amd64).
 
 The application and upstream environment/secrets configuration come from the
 Docker Official Image `phpmyadmin:5.2.3-apache`, pinned by digest. The older
@@ -12,12 +12,12 @@ there is no newer stable upstream application tag that fixes the bundled Twig.
 
 ## Changes
 
-- PHP 8.3.26 → our PHP 8.4.27, explicitly requested by the owner.
+- PHP 8.4.28 with the libxml2 security backport from the shared base image.
 - Debian 13.1 → 13.7; signed stable/security updates run during the build.
 - Twig 3.11.3 → 3.27.0; Symfony cache 5.4.46 → 5.4.52,
   expression-language 5.4.45 → 5.4.54, process 5.4.47 → 5.4.51;
   sodium_compat 1.23.0 → 1.24.2. Other runtime packages remain locked.
-- Apache → 2.4.69-1~deb13u1, OpenSSL → 3.5.7-1~deb13u3,
+- Apache → 2.4.71-1~deb13u1, OpenSSL → 3.5.7-1~deb13u3,
   PCRE2 → 10.46-1~deb13u3. The build asserts minimum fixed versions.
 - Remove development headers/compiler tools, Node/npm, Composer, Git/SSH/GnuPG,
   Java/pdftk, MariaDB client libraries and Imagick/Ghostscript. phpMyAdmin uses

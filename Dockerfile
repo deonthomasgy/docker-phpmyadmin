@@ -2,7 +2,7 @@
 FROM phpmyadmin:5.2.3-apache@sha256:62a50b1419fe55b9b4c3cd6f5aed03a18f8f5b4a236f24735d76400bea75a5ff AS upstream
 FROM composer:2@sha256:b6dcd72ca98fa19d0e5b8476de179859704891fad06dd9e0b96833d4c430a5fc AS composer
 
-FROM princeamd/php84-fpm:8.4.27-r2@sha256:7c8e805b922a9ff34a3865719b25b7b4b06094f7fd8e6a0e042722568b643ff6 AS php
+FROM princeamd/php84-fpm:8.4.28-r0@sha256:7c5ae065821f7833d727a02a1983d49d5f7711623e09faa419fec6dd6449a575 AS php
 USER root
 # No NodeSource packages are needed; use signed Debian stable/security updates.
 RUN rm -f /etc/apt/sources.list.d/nodesource.* \
@@ -21,7 +21,7 @@ RUN rm -rf vendor \
     && composer check-platform-reqs --no-dev
 
 FROM php AS runtime
-ARG VERSION=5.2.3-php8.4.27-r5
+ARG VERSION=5.2.3-php8.4.28-r0
 LABEL org.opencontainers.image.title="phpMyAdmin on princeamd PHP 8.4" \
       org.opencontainers.image.version="${VERSION}" \
       org.opencontainers.image.vendor="princeamd" \
